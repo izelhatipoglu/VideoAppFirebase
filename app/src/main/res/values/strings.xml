@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">VideoAppFirebase</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="login_up">Please enter your e-mail address and enter password</string>
+    <string name="login_button">Login</string>
+    <string name="register_button">Login</string>
+
+    <string name="regster_up">Please enter your e-mail address and create password</string>
+    <string name="enter_email">Enter your email address</string>
+    <string name="enter_pass">Enter your password</string>
+    <string name="enter_name">Enter your name and surname</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="register_account">Already have an account?</string>
+    <string name="login">Login</string>
+
+    <string name="intro">   Lorem ipsum dolor sit amet consectetur. Enim in et nulla lorem ut bibendum cursus. Luctus euismod id nisl gravida fusce. Sit donec eget tortor dictumst erat. Semper et sollicitudin vel a. Lorem ipsum dolor sit amet consectetur. Enim in et nulla lorem ut bibendum cursus.  Luctus euismod id nisl gravida fusce. Sit donec eget tortor dictumst erat. Semper et sollicitudin vel a. </string>
+    <string name="intro2">Lorem ipsum dolor sit amet consectetur. Enim in et nulla lorem ut bibendum cursus. Luctus euismod id nisl gravida fusce. Sit donec eget tortor dictumst erat. Semper et sollicitudin vel a. Commodo arcu iaculis aliquet duis neque. Hendrerit viverra malesuada facilisi viverra et lectus cursus consectetur quis. Felis sollicitudin ultrices blandit sollicitudin et libero elit tellus nisi. Ultrices quis ultrices nunc enim quam. Leo nisi est diam sed.</string>
+
+
+</resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "312223342207",
+    "project_id": "videoapp-8b97e",
+    "storage_bucket": "videoapp-8b97e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312223342207:android:25030408cfb4ecd2a1694a",
+        "android_client_info": {
+          "package_name": "com.izelhatipoglu.videoappfirebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "312223342207-brv981kjfos6a1hjtqv0vn1u4ck2cc4e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDSqk6s8vBq-TTjtjbv1frjKykhMvY7dyY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "312223342207-brv981kjfos6a1hjtqv0vn1u4ck2cc4e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
