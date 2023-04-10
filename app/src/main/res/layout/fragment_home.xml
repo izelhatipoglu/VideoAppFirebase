@@ -1,31 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".home.HomeFragment">
 
-    <View
-        android:layout_width="350dp"
-        android:layout_height="90dp"
-        android:background="@drawable/home_up_bg"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="10dp" />
-
-    <ImageView
-        android:layout_width="300dp"
-        android:layout_height="300dp"
-        android:src="@drawable/home_illustration"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="70dp"
-        />
-
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:id="@+id/ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/home_up_bg"
         android:orientation="horizontal">
 
         <ImageButton
+            android:id="@+id/bt_user"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/home_person"
@@ -35,40 +25,45 @@
 
             />
         <LinearLayout
-            android:layout_width="200dp"
+            android:layout_width="wrap_content"
             android:layout_height="120dp"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:textSize="16sp"
-                android:text="İzel Hatipoğlu"
+                android:id="@+id/tv_name"
+                tools:text="İzel Hatipoğlu"
                 android:layout_marginTop="40dp"
                 android:layout_marginStart="10dp"
                 />
 
-            <TextView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:text="15/10"
-                android:textColor="@color/dark_pink"
-                android:layout_marginStart="15dp"
-                android:textSize="16sp"
-                android:textStyle="italic"
-
-                />
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:id="@+id/recyler_view"
-                android:layout_marginTop="200dp"
-                android:background="@drawable/recyler_bg_pink"
-                tools:listitem="@layout/recyler_row"/>
-
         </LinearLayout>
 
+
     </LinearLayout>
-</FrameLayout>
+
+    <ImageView
+        android:id="@+id/image"
+        app:layout_constraintTop_toBottomOf="@id/ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/home_illustration"
+        android:layout_gravity="center_horizontal"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/recyler_view"
+        android:background="@drawable/recyler_bg_pink"
+        tools:listitem="@layout/recyler_row"
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

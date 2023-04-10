@@ -43,17 +43,20 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
         sharedPreference = requireActivity().getSharedPreferences("com.izelhatipoglu.videoappfirebase",Context.MODE_PRIVATE)
         editor = sharedPreference.edit()
 
+
         val currentUser = auth.currentUser
         if (currentUser != null){
 
             //daha önce giriş yaptı direkt home gidiyor
             startActivity(Intent(requireActivity(), HomeActivity::class.java))
             activity?.finish()
-            val mailPreferences = sharedPreference.getString("KEY_MAIL","")
-            val passwordPreferences = sharedPreference.getString("KEY_PASSWORD","")
+            val mailPreferences = sharedPreference.getString("mail","")
+            val passwordPreferences = sharedPreference.getString("password","")
 
 
         }
+
+
 
     }
 
@@ -73,7 +76,8 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
     private fun observeData() {
         viewModel.loginData.observe(viewLifecycleOwner) { loginData ->
             if (loginData) {
-                // firebase collectiona bilgileri eklicem burda
+                startActivity(Intent(requireActivity(), HomeActivity::class.java))
+                activity?.finish()
             } else {
                 Toast.makeText(context, "You have entered incorrectly!", Toast.LENGTH_SHORT).show()
             }

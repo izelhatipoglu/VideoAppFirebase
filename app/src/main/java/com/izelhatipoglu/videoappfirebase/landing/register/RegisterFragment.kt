@@ -20,8 +20,8 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
     private lateinit var sharedPreference : SharedPreferences
     private lateinit var  editor : SharedPreferences.Editor
 
-    val KEY_MAIL = ""
-    val KEY_PASSWORD = ""
+    val KEY_MAIL = "mail"
+    val KEY_PASSWORD = "password"
 
 
 
@@ -47,8 +47,7 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
             val mail = binding.mail.text.toString()
             val password = binding.password.text.toString()
             val name = binding.name.text.toString()
-            val id = UUID.randomUUID().toString()
-            viewModel.register(mail,password,name,id)
+            viewModel.register(mail,password,name)
         }
         binding.loginBt.setOnClickListener{
             val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
@@ -60,17 +59,20 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
     private fun observeData() {
         viewModel.isRegister.observe(viewLifecycleOwner) { isRegister ->
             if (isRegister) {
+                Toast.makeText(context, "Registered in the system", Toast.LENGTH_SHORT).show()
                 val mailPref = binding.mail.text.toString()
                 val passwordPref = binding.password.text.toString()
 
-                editor.putString(KEY_MAIL, mailPref.toString())
-                editor.putString(KEY_PASSWORD, passwordPref.toString())
+                editor.putString(KEY_MAIL, mailPref)
+                editor.putString(KEY_PASSWORD, passwordPref)
                 editor.apply()
 
                 println("mail shared prefernces:: $mailPref")
                 println("Password s preferences:: $passwordPref")
 
                 // findNavController().navigate(R.id.action_registerFragment_to_introFragment)
+            }else{
+                Toast.makeText(context, "Failed to register in the system!", Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -85,22 +87,11 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
             }
 
         }
-        viewModel.loginData.observe(viewLifecycleOwner) { loginData ->
-
-            if (loginData) {
-                Toast.makeText(context, "Registered in the system", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(context, "Failed to register in the system!", Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-        }
-
 
         viewModel.isSendData.observe(viewLifecycleOwner) { isSendData ->
             if (isSendData) {
-                startActivity(Intent(requireActivity(), HomeActivity::class.java))
-                activity?.finish()
+                val action = RegisterFragmentDirections.actionRegisterFragmentToIntroFragment()
+                NavHostFragment.findNavController(this).navigate(action)
                 Toast.makeText(context, "Registered Successful", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(context, "Registered Failed", Toast.LENGTH_SHORT).show()

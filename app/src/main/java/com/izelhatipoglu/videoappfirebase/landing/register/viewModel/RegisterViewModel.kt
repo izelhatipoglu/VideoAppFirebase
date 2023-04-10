@@ -15,41 +15,50 @@ class RegisterViewModel(application: Application): BaseViewModel(application) {
     private val db: FirebaseFirestore = FirebaseFirestore.getInstance()
 
     val isLoading = MutableLiveData<Boolean>()
-    val loginData = MutableLiveData<Boolean>()
 
     val isSendData = MutableLiveData<Boolean>()
     var isRegister = MutableLiveData<Boolean>()
 
-    fun register(mail: String, password: String, name: String, id: String){
+    fun register(mail: String, password: String, name: String){
 
         if(mail.isNotEmpty() && password.isNotEmpty()){
             isLoading.postValue(true)
             auth.createUserWithEmailAndPassword(mail,password).addOnCompleteListener {
                 if(it.isSuccessful){
-                    sendData(name,mail,id)
-                    isLoading.postValue(true)
+                    sendData(name,mail)
                     isRegister.postValue(true)
-                    loginData.postValue(true)
                 }else{
-                    isLoading.postValue(false)
-                    loginData.postValue(false)
+                    isRegister.postValue(false)
                     println(it.exception?.localizedMessage)
                 }
             }
+            isLoading.postValue(false)
         }
     }
 
-    fun sendData(name: String,mail: String,id: String){
+    fun sendData(name: String,mail: String){
         val postMap = hashMapOf<String, Any>()
         postMap.put("name",name)
         postMap.put("mail",mail)
-        postMap.put("id",id)
+        postMap.put("id",auth.currentUser!!.uid)
+
+        val completedVideoIdArray = hashMapOf<String,Any>()
+        postMap.put("completedVideoId", arrayListOf<String>())
 
         isLoading.postValue(true)
-        db.collection("userData").add(postMap).addOnSuccessListener {
+        db.collection("userData").document(auth.currentUser!!.uid).set(postMap).addOnSuccessListener {
+            db.collection("userData").document(auth.currentUser!!.uid).collection("completedVideoId").document("idInfo").set(completedVideoIdArray)
+                .addOnSuccessListener {
+                    println("success")
+                }.addOnFailureListener {
+                    println("failure")
+                }
             isSendData.postValue(true)
         }.addOnFailureListener {
             isLoading.postValue(false)
         }
+
+
+        isLoading.postValue(false)
     }
 }

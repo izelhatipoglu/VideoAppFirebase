@@ -5,7 +5,7 @@
 
     <string name="login_up">Please enter your e-mail address and enter password</string>
     <string name="login_button">Login</string>
-    <string name="register_button">Login</string>
+    <string name="register_button">Register</string>
 
     <string name="regster_up">Please enter your e-mail address and create password</string>
     <string name="enter_email">Enter your email address</string>
@@ -18,5 +18,7 @@
     <string name="intro">   Lorem ipsum dolor sit amet consectetur. Enim in et nulla lorem ut bibendum cursus. Luctus euismod id nisl gravida fusce. Sit donec eget tortor dictumst erat. Semper et sollicitudin vel a. Lorem ipsum dolor sit amet consectetur. Enim in et nulla lorem ut bibendum cursus.  Luctus euismod id nisl gravida fusce. Sit donec eget tortor dictumst erat. Semper et sollicitudin vel a. </string>
     <string name="intro2">Lorem ipsum dolor sit amet consectetur. Enim in et nulla lorem ut bibendum cursus. Luctus euismod id nisl gravida fusce. Sit donec eget tortor dictumst erat. Semper et sollicitudin vel a. Commodo arcu iaculis aliquet duis neque. Hendrerit viverra malesuada facilisi viverra et lectus cursus consectetur quis. Felis sollicitudin ultrices blandit sollicitudin et libero elit tellus nisi. Ultrices quis ultrices nunc enim quam. Leo nisi est diam sed.</string>
 
+    <string name="setting_save">Save </string>
+    <string name="setting_out">Log out</string>
 
 </resources>

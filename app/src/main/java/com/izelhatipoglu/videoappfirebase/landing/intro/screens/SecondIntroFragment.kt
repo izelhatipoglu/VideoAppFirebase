@@ -1,5 +1,6 @@
 package com.izelhatipoglu.videoappfirebase.landing.intro.screens
 
+import android.content.Intent
 import android.os.Bundle
 
 import android.view.LayoutInflater
@@ -9,7 +10,10 @@ import androidx.viewpager2.widget.ViewPager2
 import com.izelhatipoglu.videoappfirebase.R
 import com.izelhatipoglu.videoappfirebase.base.BaseFragment
 import com.izelhatipoglu.videoappfirebase.databinding.FragmentIntroSecondBinding
+import com.izelhatipoglu.videoappfirebase.home.HomeActivity
+import com.izelhatipoglu.videoappfirebase.landing.LandingActivity
 import com.izelhatipoglu.videoappfirebase.landing.intro.screens.viewModel.SecondIntroViewModel
+import com.izelhatipoglu.videoappfirebase.videoPlayer.VideoPlayerActivity
 
 class SecondIntroFragment : BaseFragment<SecondIntroViewModel, FragmentIntroSecondBinding>() {
 
@@ -25,5 +29,10 @@ class SecondIntroFragment : BaseFragment<SecondIntroViewModel, FragmentIntroSeco
         super.onViewCreated(view, savedInstanceState)
         val viewPager= activity?.findViewById<ViewPager2>(R.id.viewPager)
         viewPager?.currentItem = 2
+
+        binding.tvSkip.setOnClickListener {
+            startActivity(Intent(requireActivity(), HomeActivity::class.java))
+            activity?.finish()
+        }
     }
 }

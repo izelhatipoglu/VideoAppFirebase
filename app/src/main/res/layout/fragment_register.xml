@@ -124,7 +124,7 @@
             android:background="@drawable/login_bg_text"
             android:hint="@string/enter_pass"
             android:inputType="textPassword"
-            android:textColorHint="@color/grey"
+            android:textColorHint="@color/black"
             app:layout_constraintCircleRadius="10dp">
 
         </com.google.android.material.textfield.TextInputEditText>
@@ -168,7 +168,7 @@
         android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="@string/login_button"
+        android:text="@string/register_button"
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:textSize="18sp"
