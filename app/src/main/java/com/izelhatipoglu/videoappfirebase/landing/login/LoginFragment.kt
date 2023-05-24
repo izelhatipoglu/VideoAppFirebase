@@ -14,6 +14,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.izelhatipoglu.videoappfirebase.R
 import com.izelhatipoglu.videoappfirebase.base.BaseFragment
 import com.izelhatipoglu.videoappfirebase.databinding.FragmentLoginBinding
+import com.izelhatipoglu.videoappfirebase.doctor.DoctorActivity
 import com.izelhatipoglu.videoappfirebase.home.HomeActivity
 import com.izelhatipoglu.videoappfirebase.landing.login.viewModel.LoginViewModel
 
@@ -22,6 +23,8 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
     private val auth = FirebaseAuth.getInstance()
     private lateinit var sharedPreference: SharedPreferences
     private lateinit var editor: SharedPreferences.Editor
+
+    val LOGIN_TYPE = "login_type"
 
 
     override fun getViewModel(): Class<LoginViewModel> = LoginViewModel::class.java
@@ -40,7 +43,7 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
     }
 
     private fun initUI(){
-        sharedPreference = requireActivity().getSharedPreferences("com.izelhatipoglu.videoappfirebase",Context.MODE_PRIVATE)
+       /* sharedPreference = requireActivity().getSharedPreferences("com.izelhatipoglu.videoappfirebase",Context.MODE_PRIVATE)
         editor = sharedPreference.edit()
 
 
@@ -48,15 +51,23 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
         if (currentUser != null){
 
             //daha önce giriş yaptı direkt home gidiyor
-            startActivity(Intent(requireActivity(), HomeActivity::class.java))
-            activity?.finish()
             val mailPreferences = sharedPreference.getString("mail","")
             val passwordPreferences = sharedPreference.getString("password","")
-
+            val typePreferences = sharedPreference.getString("login_type","")
+            when(typePreferences){
+                "sick" ->{
+                    startActivity(Intent(requireActivity(), HomeActivity::class.java))
+                    activity?.finish()
+                }
+                "doctor"->{
+                    startActivity(Intent(requireActivity(), DoctorActivity::class.java))
+                    activity?.finish()
+                }
+            }
 
         }
 
-
+*/
 
     }
 
@@ -71,11 +82,18 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
             val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
             NavHostFragment.findNavController(this).navigate(action)
         }
+
+        binding.loginDoctor.setOnClickListener{
+            val action = LoginFragmentDirections.actionLoginFragmentToDoctorLoginFragment()
+            NavHostFragment.findNavController(this).navigate(action)
+        }
     }
 
     private fun observeData() {
         viewModel.loginData.observe(viewLifecycleOwner) { loginData ->
             if (loginData) {
+                editor.putString(LOGIN_TYPE,"sick")
+                editor.apply()
                 startActivity(Intent(requireActivity(), HomeActivity::class.java))
                 activity?.finish()
             } else {

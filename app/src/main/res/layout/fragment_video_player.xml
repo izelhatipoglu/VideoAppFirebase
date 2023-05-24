@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/videoViewFragment"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".videoPlayer.VideoPlayerFragment">
+
+    <ImageView
+        android:id="@+id/iv_back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/leftarrow"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textSize="15sp"
+        tools:text="1.Bölüm : Beslenme"
+        android:layout_marginStart="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/iv_back"
+        app:layout_constraintStart_toEndOf="@id/iv_back"
+        app:layout_constraintTop_toTopOf="@id/iv_back"/>
+
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/videoView"
+        android:orientation="horizontal"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:foregroundGravity="center_vertical"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@id/iv_back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_margin="10dp"/>
+
+
+    <ImageButton
+        android:id="@+id/play_button"
+        android:src="@drawable/play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

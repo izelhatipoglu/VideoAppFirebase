@@ -2,10 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/home_fragment"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".home.HomeFragment">
+    tools:context=".doctor.HomeDoctorFragment">
 
     <LinearLayout
         android:id="@+id/ll"
@@ -19,12 +18,13 @@
             android:id="@+id/bt_user"
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:src="@drawable/home_person"
+            android:src="@drawable/doctor_pinl"
             android:background="@android:color/transparent"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
 
             />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="120dp"
@@ -42,7 +42,6 @@
 
         </LinearLayout>
 
-
     </LinearLayout>
 
     <ImageView
@@ -53,19 +52,33 @@
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:src="@drawable/home_illustration"
+        android:src="@drawable/doctor_illust"
         android:layout_gravity="center_horizontal"
         />
 
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyler_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/recyler_view"
         android:background="@drawable/recyler_bg_pink"
-        tools:listitem="@layout/recyler_row"
-        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        app:layout_constraintTop_toBottomOf="@id/image"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="27dp"
+        tools:listitem="@layout/recyler_doctor_row" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/floating_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_margin="10dp"
+        android:foreground="@drawable/add_person"
+        android:foregroundGravity="center"
+        />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -76,5 +89,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,6 +14,8 @@ class HomeViewModel(application: Application): BaseViewModel(application) {
     private val db = FirebaseFirestore.getInstance()
     private var auth = FirebaseAuth.getInstance()
 
+    val isLoading = MutableLiveData<Boolean>()
+
     val videoInfoList = MutableLiveData<ArrayList<VideoInfo>>()
     private val videoClearList = ArrayList<VideoInfo>()
      val completedVideoIdList = MutableLiveData<ArrayList<String>>()
@@ -21,6 +23,7 @@ class HomeViewModel(application: Application): BaseViewModel(application) {
     val userData = MutableLiveData<InfoUser>()
 
     fun getData(){
+        isLoading.postValue(true)
         db.collection("Video Info").get().addOnSuccessListener {
             if(it != null){
                 videoClearList.clear()
@@ -33,10 +36,12 @@ class HomeViewModel(application: Application): BaseViewModel(application) {
                 }
                 videoInfoList.postValue(videoClearList)
             }
-
+            isLoading.postValue(false)
         }.addOnFailureListener {
             Log.d("deneme", "get failed with datayramy ", it)
+            isLoading.postValue(false)
         }
+
     }
 
 

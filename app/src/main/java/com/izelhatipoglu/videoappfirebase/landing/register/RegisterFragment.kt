@@ -22,6 +22,7 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
 
     val KEY_MAIL = "mail"
     val KEY_PASSWORD = "password"
+    val LOGIN_TYPE = "login_type"
 
 
 
@@ -65,10 +66,10 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
 
                 editor.putString(KEY_MAIL, mailPref)
                 editor.putString(KEY_PASSWORD, passwordPref)
+                editor.putString(LOGIN_TYPE,"sick")
                 editor.apply()
 
-                println("mail shared prefernces:: $mailPref")
-                println("Password s preferences:: $passwordPref")
+
 
                 // findNavController().navigate(R.id.action_registerFragment_to_introFragment)
             }else{

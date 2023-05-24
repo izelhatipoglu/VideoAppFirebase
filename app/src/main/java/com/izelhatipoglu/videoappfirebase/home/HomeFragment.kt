@@ -78,6 +78,17 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(){
             }
         }
 
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            if (isLoading) {
+                binding.homeFragment.isEnabled = false
+                binding.progressBar.visibility = View.VISIBLE
+            } else {
+                binding.homeFragment.isEnabled = true
+                binding.progressBar.visibility = View.GONE
+            }
+
+        }
+
 
     }
 
