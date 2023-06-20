@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/drawable/add_video_textview.xml" value="0.173" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/drawable/bg_grey.xml" value="0.122" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/drawable/bg_info_home.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/drawable/bg_intro.xml" value="0.1" />
@@ -16,13 +17,17 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/drawable/pink_bg.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/drawable/recyler_bg.xml" value="0.193" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/drawable/recyler_bg_pink.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/drawable/spinner_bg.xml" value="0.1625" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/drawable/tv_doctor_info.xml" value="0.129" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/activity_doctor.xml" value="0.23738738738738738" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/activity_doctor_info.xml" value="0.14351851851851852" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/activity_home.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/activity_landing.xml" value="0.27395833333333336" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/activity_main.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/activity_splash.xml" value="0.2598958333333333" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/activity_video_player.xml" value="0.23738738738738738" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_doctor_info.xml" value="0.176" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_add_video.xml" value="0.2" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_doctor_info.xml" value="0.264" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_doctor_login.xml" value="0.264" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_first_intro.xml" value="0.1" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_home.xml" value="0.264" />
@@ -32,10 +37,10 @@
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_intro2.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_intro_second.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_login.xml" value="0.264" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_register.xml" value="0.1" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_register.xml" value="0.4" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_second_home.xml" value="0.264" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_second_intro.xml" value="0.264" />
-        <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_setting.xml" value="0.11918604651162791" />
+        <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_setting.xml" value="0.2" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_splash.xml" value="0.2" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/fragment_video_player.xml" value="0.16" />
         <entry key="..\:/Users/HP/AndroidStudioProjects/VideoAppFirebase/app/src/main/res/layout/recyler_doctor_row.xml" value="0.23738738738738738" />

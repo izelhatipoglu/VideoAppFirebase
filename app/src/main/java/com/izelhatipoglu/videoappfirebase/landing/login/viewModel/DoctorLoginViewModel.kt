@@ -3,10 +3,6 @@ package com.izelhatipoglu.videoappfirebase.landing.login.viewModel
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
-import com.google.android.material.textfield.TextInputEditText
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.izelhatipoglu.videoappfirebase.base.BaseViewModel
@@ -22,14 +18,15 @@ class DoctorLoginViewModel(application: Application): BaseViewModel(application)
 
     val doctorMailList = MutableLiveData<ArrayList<String>>()
     val doctorClearList = ArrayList<String>()
+    val doctorMailListL = ArrayList<String>()
     val controldata = MutableLiveData<Boolean>()
 
-    var controlInfo = false
 
     fun login(mail: String, password: String){
             if (mail.isNotEmpty() && password.isNotEmpty()) {
+                println("login $password")
                 isLoding.postValue(true)
-                auth.signInWithEmailAndPassword(mail, password)
+                auth.signInWithEmailAndPassword(mail,password)
                     .addOnCompleteListener { p0 ->
                         isLoding.postValue(false)
                         if (p0.isSuccessful) {
@@ -37,6 +34,7 @@ class DoctorLoginViewModel(application: Application): BaseViewModel(application)
                             loginData.postValue(true)
                         } else {
                             loginData.postValue(false)
+                            println("hatalı giriş")
                         }
                     }
                     .addOnFailureListener {
@@ -59,8 +57,11 @@ class DoctorLoginViewModel(application: Application): BaseViewModel(application)
                         doctorClearList.add(mail)
                     }
                 }
+                doctorMailListL.addAll(doctorClearList)
                 doctorMailList.postValue(doctorClearList)
-                control(mailUser,doctorClearList)
+                println(doctorClearList.size)
+                println(doctorClearList[0])
+                control(mailUser,doctorMailListL)
 
            }
             isLoding.postValue(false)
@@ -72,15 +73,23 @@ class DoctorLoginViewModel(application: Application): BaseViewModel(application)
     }
 
 
-    fun control(mail: String,list: List<String>){
-        println("Control geliyor ${list.size} $mail")
-        println("Liste : ${list[0]}")
-        if(list.contains(mail)){
+    fun control(mail: String, list: List<String>){
+        var loginRequest = false
+        for (doctors in list) {
+            if (doctors == mail) {
+                println("loginRequest :b $loginRequest")
+                loginRequest = true
+            }
+        }
+        controldata.value = loginRequest
+        println("mail : $mail")
+      /*  if(list.contains(mail)){
             println(" If içinde ")
             controldata.postValue(true)
         }else{
+            println("if disinda")
             controldata.postValue(false)
-        }
+        } */
     }
 
 }

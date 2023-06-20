@@ -13,7 +13,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.izelhatipoglu.videoappfirebase.base.BaseFragment
 import com.izelhatipoglu.videoappfirebase.databinding.FragmentDoctorLoginBinding
-import com.izelhatipoglu.videoappfirebase.doctor.DoctorActivity
+import com.izelhatipoglu.videoappfirebase.doctor.home.DoctorActivity
 import com.izelhatipoglu.videoappfirebase.landing.login.viewModel.DoctorLoginViewModel
 
 class DoctorLoginFragment : BaseFragment<DoctorLoginViewModel, FragmentDoctorLoginBinding>() {
@@ -32,9 +32,11 @@ class DoctorLoginFragment : BaseFragment<DoctorLoginViewModel, FragmentDoctorLog
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        observeData()
         initUI()
         handleClick()
-        observeData()
+
+
     }
 
     override fun getFragmentBinding(
@@ -47,6 +49,7 @@ class DoctorLoginFragment : BaseFragment<DoctorLoginViewModel, FragmentDoctorLog
             mail =binding.mail.text.toString()
             password = binding.password.text.toString()
 
+            println(" buttona basıldı")
             viewModel.getData(mail)
         }
 
@@ -63,7 +66,7 @@ class DoctorLoginFragment : BaseFragment<DoctorLoginViewModel, FragmentDoctorLog
 
         val currentUser = auth.currentUser
         if (currentUser != null){
-            startActivity(Intent(requireActivity(),DoctorActivity::class.java))
+            startActivity(Intent(requireActivity(), DoctorActivity::class.java))
             activity?.finish()
             val mailPreferences = sharedPreference.getString("mail","")
             val passwordPreferences = sharedPreference.getString("password","")
@@ -75,7 +78,7 @@ class DoctorLoginFragment : BaseFragment<DoctorLoginViewModel, FragmentDoctorLog
             if(loginData){
                 editor.putString(LOGIN_TYPE,"doctor")
                 editor.apply()
-                startActivity(Intent(requireActivity(),DoctorActivity::class.java))
+                startActivity(Intent(requireActivity(), DoctorActivity::class.java))
                 activity?.finish()
             }else {
                 Toast.makeText(context, "You have entered incorrectly!", Toast.LENGTH_SHORT).show()
@@ -84,7 +87,9 @@ class DoctorLoginFragment : BaseFragment<DoctorLoginViewModel, FragmentDoctorLog
         }
 
         viewModel.controldata.observe(viewLifecycleOwner){ controlData ->
+            println("view model")
             if(controlData){
+                println("view model control datada")
                 viewModel.login(mail,password)
 
             }

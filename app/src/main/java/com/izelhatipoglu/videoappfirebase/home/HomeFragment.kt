@@ -18,7 +18,6 @@ class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(){
 
     private lateinit var myAdapter: MyAdapter
 
-
     override fun getViewModel(): Class<HomeViewModel> = HomeViewModel::class.java
 
     override fun getFragmentBinding(

@@ -4,9 +4,9 @@ import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.izelhatipoglu.videoappfirebase.doctor.DoctorInfoFragment
-import com.izelhatipoglu.videoappfirebase.doctor.viewModel.DoctorInfoViewModel
-import com.izelhatipoglu.videoappfirebase.doctor.viewModel.HomeDoctorViewModel
+import com.izelhatipoglu.videoappfirebase.doctor.addVideo.viewModel.AddVideoViewModel
+import com.izelhatipoglu.videoappfirebase.doctor.info.viewModel.DoctorInfoViewModel
+import com.izelhatipoglu.videoappfirebase.doctor.home.viewModel.HomeDoctorViewModel
 import com.izelhatipoglu.videoappfirebase.home.viewModel.*
 import com.izelhatipoglu.videoappfirebase.landing.intro.screens.viewModel.FirstIntroViewModel
 import com.izelhatipoglu.videoappfirebase.landing.intro.screens.viewModel.SecondIntroViewModel
@@ -22,7 +22,8 @@ class ViewModelFactory() : ViewModelProvider.NewInstanceFactory() {
     @SuppressLint("UseRequireInsteadOfGet")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when{
-            modelClass.isAssignableFrom(HomeDoctorViewModel::class.java)->HomeDoctorViewModel(application = Application()) as T
+            modelClass.isAssignableFrom(AddVideoViewModel::class.java)->AddVideoViewModel(application = Application()) as T
+            modelClass.isAssignableFrom(HomeDoctorViewModel::class.java)-> HomeDoctorViewModel(application = Application()) as T
             modelClass.isAssignableFrom(DoctorInfoViewModel::class.java)->DoctorInfoViewModel(application = Application()) as T
             modelClass.isAssignableFrom(DoctorLoginViewModel::class.java)-> DoctorLoginViewModel(application = Application()) as T
             modelClass.isAssignableFrom(VideoPlayerViewModel::class.java)-> VideoPlayerViewModel(application = Application()) as T

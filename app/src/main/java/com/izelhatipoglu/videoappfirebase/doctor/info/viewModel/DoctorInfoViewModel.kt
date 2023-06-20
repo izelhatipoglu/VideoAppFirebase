@@ -1,4 +1,4 @@
-package com.izelhatipoglu.videoappfirebase.doctor.viewModel
+package com.izelhatipoglu.videoappfirebase.doctor.info.viewModel
 
 import android.app.Application
 import com.izelhatipoglu.videoappfirebase.base.BaseViewModel

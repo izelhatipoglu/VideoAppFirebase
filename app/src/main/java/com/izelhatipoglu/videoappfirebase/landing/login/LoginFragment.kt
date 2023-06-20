@@ -1,28 +1,24 @@
 package com.izelhatipoglu.videoappfirebase.landing.login
 
-import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import com.google.firebase.auth.FirebaseAuth
-import com.izelhatipoglu.videoappfirebase.R
 import com.izelhatipoglu.videoappfirebase.base.BaseFragment
 import com.izelhatipoglu.videoappfirebase.databinding.FragmentLoginBinding
-import com.izelhatipoglu.videoappfirebase.doctor.DoctorActivity
 import com.izelhatipoglu.videoappfirebase.home.HomeActivity
 import com.izelhatipoglu.videoappfirebase.landing.login.viewModel.LoginViewModel
 
 class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
 
     private val auth = FirebaseAuth.getInstance()
-    private lateinit var sharedPreference: SharedPreferences
-    private lateinit var editor: SharedPreferences.Editor
+   lateinit var sharedPreference: SharedPreferences
+   lateinit var editor: SharedPreferences.Editor
 
     val LOGIN_TYPE = "login_type"
 
@@ -79,6 +75,7 @@ class LoginFragment : BaseFragment<LoginViewModel, FragmentLoginBinding>() {
         }
 
         binding.signUpBtn.setOnClickListener{
+            println(" LOGIN : Butona basıldı")
             val action = LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
             NavHostFragment.findNavController(this).navigate(action)
         }

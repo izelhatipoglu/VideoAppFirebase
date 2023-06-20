@@ -4,15 +4,13 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.firebase.auth.FirebaseAuth
-import com.izelhatipoglu.videoappfirebase.R
 import com.izelhatipoglu.videoappfirebase.base.BaseFragment
 import com.izelhatipoglu.videoappfirebase.databinding.FragmentSplashBinding
-import com.izelhatipoglu.videoappfirebase.doctor.DoctorActivity
+import com.izelhatipoglu.videoappfirebase.doctor.home.DoctorActivity
 import com.izelhatipoglu.videoappfirebase.home.HomeActivity
 import com.izelhatipoglu.videoappfirebase.landing.LandingActivity
 import com.izelhatipoglu.videoappfirebase.splash.viewModel.SplashViewModel

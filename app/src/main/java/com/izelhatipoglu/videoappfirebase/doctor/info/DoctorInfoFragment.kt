@@ -1,14 +1,12 @@
-package com.izelhatipoglu.videoappfirebase.doctor
+package com.izelhatipoglu.videoappfirebase.doctor.info
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.izelhatipoglu.videoappfirebase.R
 import com.izelhatipoglu.videoappfirebase.base.BaseFragment
 import com.izelhatipoglu.videoappfirebase.databinding.FragmentDoctorInfoBinding
-import com.izelhatipoglu.videoappfirebase.doctor.viewModel.DoctorInfoViewModel
+import com.izelhatipoglu.videoappfirebase.doctor.info.viewModel.DoctorInfoViewModel
 
 class DoctorInfoFragment :BaseFragment<DoctorInfoViewModel, FragmentDoctorInfoBinding>(){
 

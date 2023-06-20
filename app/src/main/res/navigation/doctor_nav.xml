@@ -7,20 +7,20 @@
 
     <fragment
         android:id="@+id/homeDoctorFragment"
-        android:name="com.izelhatipoglu.videoappfirebase.doctor.HomeDoctorFragment"
+        android:name="com.izelhatipoglu.videoappfirebase.doctor.home.HomeDoctorFragment"
         android:label="fragment_home_doctor"
         tools:layout="@layout/fragment_home_doctor" >
         <action
-            android:id="@+id/action_homeDoctorFragment_to_doctorInfoFragment"
-            app:destination="@id/doctorInfoFragment" />
+            android:id="@+id/action_homeDoctorFragment_to_addVideoFragment"
+            app:destination="@id/addVideoFragment" />
     </fragment>
     <fragment
-        android:id="@+id/doctorInfoFragment"
-        android:name="com.izelhatipoglu.videoappfirebase.doctor.DoctorInfoFragment"
-        android:label="fragment_doctor_info"
-        tools:layout="@layout/fragment_doctor_info" >
+        android:id="@+id/addVideoFragment"
+        android:name="com.izelhatipoglu.videoappfirebase.doctor.addVideo.AddVideoFragment"
+        android:label="fragment_add_video"
+        tools:layout="@layout/fragment_add_video" >
         <action
-            android:id="@+id/action_doctorInfoFragment_to_homeDoctorFragment"
+            android:id="@+id/action_addVideoFragment_to_homeDoctorFragment"
             app:destination="@id/homeDoctorFragment" />
     </fragment>
 </navigation>

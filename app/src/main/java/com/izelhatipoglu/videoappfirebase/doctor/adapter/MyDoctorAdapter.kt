@@ -45,7 +45,7 @@ class MyDoctorAdapter (list: ArrayList<DoctorSickList>, private val onItemClicke
 
     fun updateListDoctor(newSickList: ArrayList<DoctorSickList>){
         sickList.clear()
-        sickList.addAll(sickList)
+        sickList.addAll(newSickList)
         notifyDataSetChanged()
     }
 

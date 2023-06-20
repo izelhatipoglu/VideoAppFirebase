@@ -1,5 +1,6 @@
 package com.izelhatipoglu.videoappfirebase.landing.register
 
+import android.R
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import com.izelhatipoglu.videoappfirebase.base.BaseFragment
@@ -14,6 +16,7 @@ import com.izelhatipoglu.videoappfirebase.databinding.FragmentRegisterBinding
 import com.izelhatipoglu.videoappfirebase.home.HomeActivity
 import com.izelhatipoglu.videoappfirebase.landing.register.viewModel.RegisterViewModel
 import java.util.*
+import kotlin.collections.ArrayList
 
 class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding>() {
 
@@ -23,7 +26,6 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
     val KEY_MAIL = "mail"
     val KEY_PASSWORD = "password"
     val LOGIN_TYPE = "login_type"
-
 
 
     override fun getViewModel(): Class<RegisterViewModel> = RegisterViewModel::class.java
@@ -39,6 +41,7 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
         sharedPreference = requireActivity().getSharedPreferences("com.izelhatipoglu.videoappfirebase",Context.MODE_PRIVATE)
         editor = sharedPreference.edit()
 
+        viewModel.getDoctorNameData()
         handleClick()
         observeData()
     }
@@ -48,7 +51,9 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
             val mail = binding.mail.text.toString()
             val password = binding.password.text.toString()
             val name = binding.name.text.toString()
-            viewModel.register(mail,password,name)
+            val doctorName = binding.spinner.selectedItem.toString()
+
+            viewModel.register(mail,password,name,doctorName)
         }
         binding.loginBt.setOnClickListener{
             val action = RegisterFragmentDirections.actionRegisterFragmentToLoginFragment()
@@ -58,6 +63,14 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
     }
 
     private fun observeData() {
+        viewModel.doctorNameData.observe(viewLifecycleOwner){
+
+            val spinnerAdapter = ArrayAdapter(requireContext(), R.layout.simple_spinner_item, it)
+            spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+            binding.spinner.adapter = spinnerAdapter
+
+        }
         viewModel.isRegister.observe(viewLifecycleOwner) { isRegister ->
             if (isRegister) {
                 Toast.makeText(context, "Registered in the system", Toast.LENGTH_SHORT).show()
@@ -100,4 +113,5 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
 
         }
     }
+
 }
